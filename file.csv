@@ -1,0 +1,19 @@
+"test",35b862cddefc9
+"hello",1e5eabe786f5dbba
+"world",1469f233ae09a2fc
+"",5a6ef77074ebc84b
+"123456789",90faa4ce346f2954
+"!@#$%^&*()",f4083cafe8226104
+"    ",f808371eff734a29
+"\t",1c18b6e7690092e2
+" \n ",d593c31a4dba02df
+"a very long string that exceeds normal lengths to check for performance and correctness of the hash function",2633cf75eaaf8659
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",628bb48069723f3d
+"こんにちは",7901b730f37bd0f0
+"😊🚀🌟",754c3d82e502b8cb
+"abcabcabcabcabc",66dd9aa818955aa8
+"123123123123123",37928ca835b2f77b
+"A",70070f7d0e77caa1
+"AB",53d49aae698fb5e0
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ",430b36b055748882
+"Mix3d!@#Ch4racters$%^&*()",2562199dc369066a
