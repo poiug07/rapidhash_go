@@ -11,6 +11,6 @@ TODO: benchmark and try to improve performance
 To run tests you can just run `go test`.
 
 No fancy comparison or comprehensive test set. Just some strings.
-`file.csv` is output of [test.cpp](test.cpp). I didn't include rapidhash header file, you can do that if you want.
+`additional/file.csv` is output of [additional/test.cpp](additional/test.cpp). I didn't include rapidhash header file, you can do that if you want.
 
 Output seems to be matching.

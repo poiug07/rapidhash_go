@@ -2,7 +2,7 @@ package rapidhash
 
 import (
 	"encoding/binary"
-	"unsafe"
+	"math/bits"
 )
 
 // Default seed
@@ -18,17 +18,13 @@ var rapid_secret [3]uint64 = [3]uint64{0x2D358DCCAA6C78A5, 0x8BB84B93962EACC9, 0
 @param B  Address of 64-bit number.
 
 Calculates 128-bit C = *A * *B.
-
-When RAPIDHASH_FAST is defined:
-Overwrites A contents with C's low 64 bits.
-Overwrites B contents with C's high 64 bits.
-
-When RAPIDHASH_PROTECTED is defined:
-Xors and overwrites A contents with C's low 64 bits.
-Xors and overwrites B contents with C's high 64 bits.
 */
 func rapid_mum(A *uint64, B *uint64) {
-	var ha uint64 = *A >> 32
+	hi, lo := bits.Mul64(*A, *B)
+	*A = lo
+	*B = hi
+	// Below and above are equivalent, didn't know go has 128 bit multiply
+	/* var ha uint64 = *A >> 32
 	var hb uint64 = *B >> 32
 
 	var la uint64 = uint64(*(*uint32)(unsafe.Pointer(A)))
@@ -50,7 +46,7 @@ func rapid_mum(A *uint64, B *uint64) {
 	}
 	hi = rh + (rm0 >> 32) + (rm1 >> 32) + c
 	*A = lo
-	*B = hi
+	*B = hi */
 }
 
 /*

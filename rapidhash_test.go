@@ -41,7 +41,7 @@ func unescapeString(s string) string {
 }
 
 func TestRapidhashFileInput(t *testing.T) {
-	file, err := os.Open("file.csv")
+	file, err := os.Open("additional/file.csv")
 	if err != nil {
 		t.Fatalf("Cannot open file %v", err)
 	}
