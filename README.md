@@ -21,32 +21,32 @@ goos: linux
 goarch: amd64
 pkg: github.com/poiug07/rapidhash_go
 cpu: AMD Ryzen 5 4600H with Radeon Graphics
-BenchmarkRapidhash/input_size_0-12              290510910                4.132 ns/op
-BenchmarkRapidhash/input_size_3-12              280600263                4.264 ns/op
-BenchmarkRapidhash/input_size_4-12              186932817                6.450 ns/op
-BenchmarkRapidhash/input_size_5-12              187434186                6.465 ns/op
-BenchmarkRapidhash/input_size_16-12             186522740                6.433 ns/op
-BenchmarkRapidhash/input_size_24-12             182301670                6.690 ns/op
-BenchmarkRapidhash/input_size_32-12             182571181                6.526 ns/op
-BenchmarkRapidhash/input_size_64-12             100000000               10.67 ns/op
-BenchmarkRapidhash/input_size_127-12            76516664                15.82 ns/op
-BenchmarkRapidhash/input_size_128-12            77193223                16.05 ns/op
-BenchmarkRapidhash/input_size_129-12            67860391                17.23 ns/op
-BenchmarkRapidhash/input_size_256-12            40423498                28.45 ns/op
-BenchmarkRapidhash/input_size_2048-12            6230944               192.9 ns/op
-BenchmarkXXHash/input_size_0-12                 385302340                3.088 ns/op
-BenchmarkXXHash/input_size_3-12                 278421804                4.267 ns/op
-BenchmarkXXHash/input_size_4-12                 402333718                2.989 ns/op
-BenchmarkXXHash/input_size_5-12                 331480569                3.636 ns/op
-BenchmarkXXHash/input_size_16-12                280389565                4.308 ns/op
-BenchmarkXXHash/input_size_24-12                226634413                5.254 ns/op
-BenchmarkXXHash/input_size_32-12                144552816                8.109 ns/op
+BenchmarkRapidhash/input_size_0-12              286829593                4.234 ns/op
+BenchmarkRapidhash/input_size_3-12              268587536                4.501 ns/op
+BenchmarkRapidhash/input_size_4-12              260718156                4.548 ns/op
+BenchmarkRapidhash/input_size_5-12              266941742                4.487 ns/op
+BenchmarkRapidhash/input_size_16-12             266520846                4.475 ns/op
+BenchmarkRapidhash/input_size_24-12             150312818                7.973 ns/op
+BenchmarkRapidhash/input_size_32-12             151597726                7.952 ns/op
+BenchmarkRapidhash/input_size_64-12             100000000               10.76 ns/op
+BenchmarkRapidhash/input_size_127-12            64625989                17.91 ns/op
+BenchmarkRapidhash/input_size_128-12            66186228                17.84 ns/op
+BenchmarkRapidhash/input_size_129-12            64386932                18.69 ns/op
+BenchmarkRapidhash/input_size_256-12            49929309                23.97 ns/op
+BenchmarkRapidhash/input_size_2048-12            7851744               149.7 ns/op
+BenchmarkXXHash/input_size_0-12                 383870833                3.051 ns/op
+BenchmarkXXHash/input_size_3-12                 282406237                4.340 ns/op
+BenchmarkXXHash/input_size_4-12                 391303644                3.092 ns/op
+BenchmarkXXHash/input_size_5-12                 328387610                3.625 ns/op
+BenchmarkXXHash/input_size_16-12                279238797                4.323 ns/op
+BenchmarkXXHash/input_size_24-12                231869424                5.181 ns/op
+BenchmarkXXHash/input_size_32-12                148488446                8.110 ns/op
 BenchmarkXXHash/input_size_64-12                100000000               10.20 ns/op
-BenchmarkXXHash/input_size_127-12               60816213                19.96 ns/op
-BenchmarkXXHash/input_size_128-12               69258024                16.71 ns/op
-BenchmarkXXHash/input_size_129-12               76140750                14.98 ns/op
-BenchmarkXXHash/input_size_256-12               53192498                22.49 ns/op
-BenchmarkXXHash/input_size_2048-12               8659554               140.4 ns/op
+BenchmarkXXHash/input_size_127-12               59162182                20.10 ns/op
+BenchmarkXXHash/input_size_128-12               65578489                17.30 ns/op
+BenchmarkXXHash/input_size_129-12               80339310                14.97 ns/op
+BenchmarkXXHash/input_size_256-12               52242411                22.26 ns/op
+BenchmarkXXHash/input_size_2048-12               8708263               136.8 ns/op
 PASS
-ok      github.com/poiug07/rapidhash_go 38.727s
+ok      github.com/poiug07/rapidhash_go 38.336s
 ```

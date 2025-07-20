@@ -139,13 +139,13 @@ func rapidhash_internal(data []byte, seed uint64, secret [8]uint64) uint64 {
 			if i > 32 {
 				seed = rapid_mix(read64(p[16:])^secret[2], read64(p[24:])^seed)
 				if i > 48 {
-					seed = rapid_mix(read64(p[32:])^secret[1], read64(p[40:])^see1)
+					seed = rapid_mix(read64(p[32:])^secret[1], read64(p[40:])^seed)
 					if i > 64 {
-						seed = rapid_mix(read64(p[48:])^secret[1], read32(p[56:])^seed)
+						seed = rapid_mix(read64(p[48:])^secret[1], read64(p[56:])^seed)
 						if i > 80 {
-							seed = rapid_mix(read64(p[64:])^secret[2], read32(p[72:])^seed)
+							seed = rapid_mix(read64(p[64:])^secret[2], read64(p[72:])^seed)
 							if i > 96 {
-								seed = rapid_mix(read64(p[80:])^secret[1], read32(p[88:])^seed)
+								seed = rapid_mix(read64(p[80:])^secret[1], read64(p[88:])^seed)
 							}
 						}
 					}
@@ -167,4 +167,142 @@ func RapidhashWithSeed(data []byte, seed uint64) uint64 {
 
 func Rapidhash(data []byte) uint64 {
 	return RapidhashWithSeed(data, 0)
+}
+
+func rapidhash_micro_internal(data []byte, seed uint64, secret [8]uint64) uint64 {
+	bufferlen := uint64(len(data))
+	p := data
+	i := bufferlen
+	var a, b uint64
+
+	seed ^= rapid_mix(seed^secret[2], secret[1])
+	if bufferlen <= 16 {
+		if bufferlen >= 4 {
+			seed ^= bufferlen
+			if bufferlen >= 8 {
+				var datalast = data[bufferlen-8:]
+				a = read64(data)
+				b = read64(datalast)
+			} else {
+				var datalast = data[bufferlen-4:]
+				a = read32(data)
+				b = read32(datalast)
+			}
+		} else {
+			if bufferlen > 0 {
+				a = (((uint64)(data[0])) << 45) | ((uint64)(data[bufferlen-1]))
+				b = (uint64)(data[bufferlen>>1])
+			} /* else { // Initialized to 0 by default
+				a = 0
+				b = 0
+			} */
+		}
+	} else {
+		if i > 80 {
+			var see1, see2, see3, see4 = seed, seed, seed, seed
+			for i >= 80 {
+				seed = rapid_mix(read64(p)^secret[0], read64(p[8:])^seed)
+				see1 = rapid_mix(read64(p[16:])^secret[1], read64(p[24:])^see1)
+				see2 = rapid_mix(read64(p[32:])^secret[2], read64(p[40:])^see2)
+				see3 = rapid_mix(read64(p[48:])^secret[3], read64(p[56:])^see3)
+				see4 = rapid_mix(read64(p[64:])^secret[4], read64(p[72:])^see4)
+				p = p[80:]
+				i -= 80
+			}
+			seed ^= see1
+			see2 ^= see3
+			seed ^= see4
+			seed ^= see2
+		}
+		if i > 16 {
+			seed = rapid_mix(read64(p)^secret[2], read64(p[8:])^seed)
+			if i > 32 {
+				seed = rapid_mix(read64(p[16:])^secret[2], read64(p[24:])^seed)
+				if i > 48 {
+					seed = rapid_mix(read64(p[32:])^secret[1], read64(p[40:])^seed)
+					if i > 64 {
+						seed = rapid_mix(read64(p[48:])^secret[1], read64(p[56:])^seed)
+					}
+				}
+			}
+		}
+		a = read64(data[bufferlen-((uint64)(len(p)))+i-16:]) ^ i
+		b = read64(data[bufferlen-((uint64)(len(p)))+i-8:])
+	}
+	a ^= secret[1]
+	b ^= seed
+	rapid_mum(&a, &b)
+	return rapid_mix(a^secret[7], b^secret[1]^i)
+}
+
+func rapidhash_nano_internal(data []byte, seed uint64, secret [8]uint64) uint64 {
+	bufferlen := uint64(len(data))
+	p := data
+	i := bufferlen
+	var a, b uint64
+
+	seed ^= rapid_mix(seed^secret[2], secret[1])
+	if bufferlen <= 16 {
+		if bufferlen >= 4 {
+			seed ^= bufferlen
+			if bufferlen >= 8 {
+				var datalast = data[bufferlen-8:]
+				a = read64(data)
+				b = read64(datalast)
+			} else {
+				var datalast = data[bufferlen-4:]
+				a = read32(data)
+				b = read32(datalast)
+			}
+		} else {
+			if bufferlen > 0 {
+				a = (((uint64)(data[0])) << 45) | ((uint64)(data[bufferlen-1]))
+				b = (uint64)(data[bufferlen>>1])
+			} /* else { // Initialized to 0 by default
+				a = 0
+				b = 0
+			} */
+		}
+	} else {
+		if i > 48 {
+			var see1, see2 = seed, seed
+			for i >= 48 {
+				seed = rapid_mix(read64(p)^secret[0], read64(p[8:])^seed)
+				see1 = rapid_mix(read64(p[16:])^secret[1], read64(p[24:])^see1)
+				see2 = rapid_mix(read64(p[32:])^secret[2], read64(p[40:])^see2)
+				p = p[48:]
+				i -= 48
+			}
+			seed ^= see1
+			seed ^= see2
+		}
+		if i > 16 {
+			seed = rapid_mix(read64(p)^secret[2], read64(p[8:])^seed)
+			if i > 32 {
+				seed = rapid_mix(read64(p[16:])^secret[2], read64(p[24:])^seed)
+			}
+		}
+		a = read64(data[bufferlen-((uint64)(len(p)))+i-16:]) ^ i
+		b = read64(data[bufferlen-((uint64)(len(p)))+i-8:])
+	}
+	a ^= secret[1]
+	b ^= seed
+	rapid_mum(&a, &b)
+	return rapid_mix(a^secret[7], b^secret[1]^i)
+}
+
+func RapidhashMicroWithSeed(data []byte, seed uint64) uint64 {
+	return rapidhash_micro_internal(data, seed, rapid_secret)
+}
+
+func RapidhashMicro(data []byte) uint64 {
+	return RapidhashMicroWithSeed(data, 0)
+}
+
+func RapidhashNanoWithSeed(data []byte, seed uint64) uint64 {
+	return rapidhash_nano_internal(data, seed, rapid_secret)
+}
+
+func RapidhashNano(data []byte) uint64 {
+	return RapidhashNanoWithSeed(data, 0)
 }
