@@ -39,6 +39,32 @@ func BenchmarkRapidhash(b *testing.B) {
 	}
 }
 
+func BenchmarkRapidhashMicro(b *testing.B) {
+	for _, v := range table {
+		input := make([]byte, v.size)
+		cc8 := rand.NewChaCha8(randomseed)
+		cc8.Read(input)
+		b.Run(fmt.Sprintf("input_size_%d", v.size), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				RapidhashMicro(input)
+			}
+		})
+	}
+}
+
+func BenchmarkRapidhashNano(b *testing.B) {
+	for _, v := range table {
+		input := make([]byte, v.size)
+		cc8 := rand.NewChaCha8(randomseed)
+		cc8.Read(input)
+		b.Run(fmt.Sprintf("input_size_%d", v.size), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				RapidhashNano(input)
+			}
+		})
+	}
+}
+
 func BenchmarkXXHash(b *testing.B) {
 	for _, v := range table {
 		input := make([]byte, v.size)
