@@ -1,8 +1,14 @@
 # rapidhash_go
 
-This is pure go implementation of Rapidhash without assembly and with true streaming API (instead of just collecting all data into buffer and hashing in the end).  You can read more info about `rapidhash` in original repo: [https://github.com/Nicoshev/rapidhash](https://github.com/Nicoshev/rapidhash). It is faster successor of wyhash already being used in many projects.
+[![Go Reference](https://pkg.go.dev/badge/github.com/poiug07/rapidhash_go.svg)](https://pkg.go.dev/github.com/poiug07/rapidhash_go)
 
-Previous version port can be found at [V1 branch](https://github.com/poiug07/rapidhash_go/tree/v1).
+Rapidhash is a family of three non-cryptographic hash functions with excellent properties and performance.
+
+This is pure go port without assembly and with true streaming API (instead of just collecting all data into buffer and hashing in the end). 
+
+You can read more info about `rapidhash` in original repo: [https://github.com/Nicoshev/rapidhash](https://github.com/Nicoshev/rapidhash). It is faster successor of wyhash already being used in many projects.
+
+Previous version port can be found at [V1 branch](https://github.com/poiug07/rapidhash_go/tree/v1). However, note that it contained bug - wrong hash for inputs larger than 224 bytes.
 
 ## Usage
 
@@ -41,7 +47,7 @@ fmt.Println(h.Sum64())
 
 ## Benchmarks
 
-Comparison against [xxhash](https://github.com/cespare/xxhash) on AMD Ryzen 5 4600H, linux/amd64. Results in ns/op (lower is better):
+Comparison against [xxhash](https://github.com/cespare/xxhash) on AMD Ryzen 5 4600H, WSL. Results in ns/op (lower is better):
 
 | input size (B) | rapidhash | rapidhash Micro | rapidhash Nano | xxhash |
 |---------------:|----------:|----------------:|---------------:|-------:|
