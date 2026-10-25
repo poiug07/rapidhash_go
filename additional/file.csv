@@ -1,19 +1,32 @@
-"test",35b862cddefc9
-"hello",1e5eabe786f5dbba
-"world",1469f233ae09a2fc
-"",5a6ef77074ebc84b
-"123456789",90faa4ce346f2954
-"!@#$%^&*()",f4083cafe8226104
-"    ",f808371eff734a29
-"\t",1c18b6e7690092e2
-" \n ",d593c31a4dba02df
-"a very long string that exceeds normal lengths to check for performance and correctness of the hash function",2633cf75eaaf8659
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",628bb48069723f3d
-"こんにちは",7901b730f37bd0f0
-"😊🚀🌟",754c3d82e502b8cb
-"abcabcabcabcabc",66dd9aa818955aa8
-"123123123123123",37928ca835b2f77b
-"A",70070f7d0e77caa1
-"AB",53d49aae698fb5e0
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ",430b36b055748882
-"Mix3d!@#Ch4racters$%^&*()",2562199dc369066a
+"test",e37001bd99e69f95
+"hello",2e2d7651b45f7946
+"world",429d731a76527fab
+"",338dc4be2cecdae
+"123456789",7e7d033b96b916a1
+"!@#$%^&*()",f36687eead3a7354
+"    ",11557f5bbb0379a9
+"	",7b51098474e06be3
+" 
+ ",fae41860e3fd1fb5
+"a very long string that exceeds normal lengths to check for performance and correctness of the hash function",aa2aaf45b2af403e
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",43a69cd1c18f30ee
+"こんにちは",64ad670d2fc9614c
+"😊🚀🌟",6bc5d5cdb052d0a
+"abcabcabcabcabc",9cf750137dd3c266
+"123123123123123",8b5782e8ac5cc74f
+"A",518851d6316f1eba
+"AB",4465be21a74fe415
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ",bd6aff0e19d8fb9a
+"Mix3d!@#Ch4racters$%^&*()",687d644af075c74a
+"aaaaaaaaaaaaaaa",3c76dc2ea6ead398
+"aaaaaaaaaaaaaaaa",aa08ee23870d0510
+"aaaaaaaaaaaaaaaaa",6d1e5b61492f0d63
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",37a9f2d7bfafde9f
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",6a85c44564504f48
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",c59bf369c22b17a1
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",9446d68de7eb700d
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",7a0c2ee9d9ee443c
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",6aa76617eaf11280
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",2824489b55928a60
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",45716ab47ec6a36c
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",6831522bff43fbd5

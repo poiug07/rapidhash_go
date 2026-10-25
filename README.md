@@ -1,23 +1,16 @@
 # rapidhash_go
 
-This is pure go implementation of Rapidhash using only safe code. Original work is optimized in c/c++. This is not the fastest hash implementation available, but it should be fast. Implemented more for completeness.
+This is pure go implementation of Rapidhash without machine specific assembly and with true streaming API (instead of just collecting all data into buffer and hashing in the end).  You can read more info about `rapidhash` in original repo: [https://github.com/Nicoshev/rapidhash](https://github.com/Nicoshev/rapidhash). It is faster successor of wyhash already being used in many projects.
 
-Previous version implementation can be found at [V1 branch](https://github.com/poiug07/rapidhash_go/tree/v1).
+Previous version port can be found at [V1 branch](https://github.com/poiug07/rapidhash_go/tree/v1).
 
-You can read more info about `rapidhash` in original repo: [https://github.com/Nicoshev/rapidhash](https://github.com/Nicoshev/rapidhash). It is fastest hash function without problems on smhasher benchmark.
+## Usage
 
-# Output comparison
+TODO
 
-To run tests you can just run `go test`.
+## Benchmarks
 
-No fancy comparison or comprehensive test set. Just some strings.
-`additional/file.csv` is output of [additional/test.cpp](additional/test.cpp). I didn't include rapidhash header file, you can do that if you want.
-
-Output seems to be matching.
-
-# Benchmarks
-
-This is not the fastest hash implementation, but it's ok. If you need fastest, you should probably use something else. Comparison against [xxhash](https://github.com/cespare/xxhash):
+Comparison against [xxhash](https://github.com/cespare/xxhash):
 ```
 goos: linux
 goarch: amd64
@@ -78,3 +71,21 @@ BenchmarkXXHash/input_size_2048-12               8708263               136.8 ns/
 PASS
 ok      github.com/poiug07/rapidhash_go 38.336s
 ```
+
+## Equivalence to C++ implementation
+
+To run tests you can just run `go test`.
+
+No fancy comparison or comprehensive test set. Just some strings.
+`additional/file.csv` is output of [additional/test.cpp](additional/test.cpp). I didn't include rapidhash header file, you can do that if you want.
+
+## License and Acknowledgements
+
+This project is licensed under BSD-2 License. Please raise a PR with a justification on why other license is better if you would like to propose change.
+
+Thanks to Nicolas De Carli for the original rapidhash C++ implementation, which is licensed under the MIT License.
+
+Other places where I took insipiration and code:
+* [Rust port of rapidhash by hoxxep](https://github.com/hoxxep/rapidhash)
+* [rapidhash port by dwisiswant0](https://github.com/dwisiswant0/rapidhash/tree/master)
+* [xxhash go port by cespare](https://github.com/cespare/xxhash/tree/main)

@@ -1,7 +1,8 @@
+//go:build !rapidhash_protected
+
 package rapidhash
 
 import (
-	"encoding/binary"
 	"encoding/csv"
 	"fmt"
 
@@ -78,22 +79,7 @@ func TestRapidhashFileInput(t *testing.T) {
 	}
 }
 
-func getRandomBytes(r rand.Source, len int) []byte {
-	data := make([]byte, len)
-	i := len
-	cur := 0
-	for i >= 8 {
-		binary.LittleEndian.PutUint64(data[cur:], r.Uint64())
-		i -= 8
-		cur += 8
-	}
-	if i > 4 {
-		binary.LittleEndian.PutUint32(data[cur:], uint32(r.Uint64()))
-		cur += 4
-	}
-	return data
-}
-
+// Rapidhash outputs match for certain sizes (up to 48 for Nano and 80 bytes for Micro)
 func TestRapidhashVariantsMatching(t *testing.T) {
 	source := rand.NewPCG(1991, 2025)
 	r := rand.New(source)

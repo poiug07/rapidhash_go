@@ -19,4 +19,6 @@ if bufferlen > 0 {
 }   
 ```
 
-5. One probably can mess with branching and loop unrolling, but I don't think it is worth doing since behavior can change with any go version. Additionally, code will lose its clarity.
+5. One probably can mess with branching and more of loop unrolling, but I implemented only the ones in original implementation for completeness. Could be removed using AI quickly.
+
+6. Tests should have tested longer inputs and across boundaries, that would have prevented some bugs that were present.
