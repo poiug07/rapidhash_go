@@ -1,9 +1,12 @@
-package rapidhash
+package benchmarks
 
 import (
 	"fmt"
 	rand "math/rand/v2"
 	"testing"
+
+	"github.com/cespare/xxhash"
+	rapidhash "github.com/poiug07/rapidhash_go"
 )
 
 var table = []struct {
@@ -22,18 +25,28 @@ var table = []struct {
 	{size: 129},
 	{size: 256},
 	{size: 2048},
+	{size: 4096},
+	{size: 20480},
 }
 
 var randomseed [32]byte = [32]byte{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 
+func generateInputs(size int) []byte {
+	input := make([]byte, size)
+	cc8 := rand.NewChaCha8(randomseed)
+	cc8.Read(input)
+	return input
+}
+
+var sink uint64
+
 func BenchmarkRapidhash(b *testing.B) {
 	for _, v := range table {
-		input := make([]byte, v.size)
-		cc8 := rand.NewChaCha8(randomseed)
-		cc8.Read(input)
+		var input = generateInputs(v.size)
 		b.Run(fmt.Sprintf("input_size_%d", v.size), func(b *testing.B) {
+			b.SetBytes(int64(v.size))
 			for i := 0; i < b.N; i++ {
-				Rapidhash(input)
+				sink = rapidhash.Rapidhash(input)
 			}
 		})
 	}
@@ -41,12 +54,11 @@ func BenchmarkRapidhash(b *testing.B) {
 
 func BenchmarkRapidhashMicro(b *testing.B) {
 	for _, v := range table {
-		input := make([]byte, v.size)
-		cc8 := rand.NewChaCha8(randomseed)
-		cc8.Read(input)
+		var input = generateInputs(v.size)
 		b.Run(fmt.Sprintf("input_size_%d", v.size), func(b *testing.B) {
+			b.SetBytes(int64(v.size))
 			for i := 0; i < b.N; i++ {
-				RapidhashMicro(input)
+				sink = rapidhash.RapidhashMicro(input)
 			}
 		})
 	}
@@ -54,12 +66,11 @@ func BenchmarkRapidhashMicro(b *testing.B) {
 
 func BenchmarkRapidhashNano(b *testing.B) {
 	for _, v := range table {
-		input := make([]byte, v.size)
-		cc8 := rand.NewChaCha8(randomseed)
-		cc8.Read(input)
+		var input = generateInputs(v.size)
 		b.Run(fmt.Sprintf("input_size_%d", v.size), func(b *testing.B) {
+			b.SetBytes(int64(v.size))
 			for i := 0; i < b.N; i++ {
-				RapidhashNano(input)
+				sink = rapidhash.RapidhashNano(input)
 			}
 		})
 	}
@@ -67,12 +78,11 @@ func BenchmarkRapidhashNano(b *testing.B) {
 
 func BenchmarkXXHash(b *testing.B) {
 	for _, v := range table {
-		input := make([]byte, v.size)
-		cc8 := rand.NewChaCha8(randomseed)
-		cc8.Read(input)
+		var input = generateInputs(v.size)
 		b.Run(fmt.Sprintf("input_size_%d", v.size), func(b *testing.B) {
+			b.SetBytes(int64(v.size))
 			for i := 0; i < b.N; i++ {
-				// xxhash.Sum64(input)
+				sink = xxhash.Sum64(input)
 			}
 		})
 	}
