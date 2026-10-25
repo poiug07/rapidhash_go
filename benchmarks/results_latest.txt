@@ -1,0 +1,186 @@
+goos: linux
+goarch: amd64
+pkg: github.com/poiug07/rapidhash_go/benchmarks
+cpu: AMD Ryzen 5 4600H with Radeon Graphics         
+BenchmarkRapidhash/input_size_0-12         	  500000	         4.143 ns/op
+BenchmarkRapidhash/input_size_0-12         	  500000	         4.304 ns/op
+BenchmarkRapidhash/input_size_0-12         	  500000	         4.090 ns/op
+BenchmarkRapidhash/input_size_3-12         	  500000	         3.978 ns/op	 754.22 MB/s
+BenchmarkRapidhash/input_size_3-12         	  500000	         4.056 ns/op	 739.72 MB/s
+BenchmarkRapidhash/input_size_3-12         	  500000	         6.799 ns/op	 441.27 MB/s
+BenchmarkRapidhash/input_size_4-12         	  500000	         4.387 ns/op	 911.78 MB/s
+BenchmarkRapidhash/input_size_4-12         	  500000	         4.235 ns/op	 944.42 MB/s
+BenchmarkRapidhash/input_size_4-12         	  500000	         4.111 ns/op	 973.09 MB/s
+BenchmarkRapidhash/input_size_5-12         	  500000	         4.139 ns/op	1208.02 MB/s
+BenchmarkRapidhash/input_size_5-12         	  500000	         4.116 ns/op	1214.65 MB/s
+BenchmarkRapidhash/input_size_5-12         	  500000	         4.242 ns/op	1178.69 MB/s
+BenchmarkRapidhash/input_size_16-12        	  500000	         6.563 ns/op	2437.76 MB/s
+BenchmarkRapidhash/input_size_16-12        	  500000	         4.058 ns/op	3943.22 MB/s
+BenchmarkRapidhash/input_size_16-12        	  500000	         4.037 ns/op	3963.54 MB/s
+BenchmarkRapidhash/input_size_24-12        	  500000	         7.005 ns/op	3426.32 MB/s
+BenchmarkRapidhash/input_size_24-12        	  500000	         7.074 ns/op	3392.71 MB/s
+BenchmarkRapidhash/input_size_24-12        	  500000	         7.133 ns/op	3364.74 MB/s
+BenchmarkRapidhash/input_size_32-12        	  500000	         7.059 ns/op	4533.22 MB/s
+BenchmarkRapidhash/input_size_32-12        	  500000	         6.968 ns/op	4592.42 MB/s
+BenchmarkRapidhash/input_size_32-12        	  500000	         6.998 ns/op	4573.00 MB/s
+BenchmarkRapidhash/input_size_64-12        	  500000	        10.01 ns/op	6392.97 MB/s
+BenchmarkRapidhash/input_size_64-12        	  500000	        10.16 ns/op	6300.08 MB/s
+BenchmarkRapidhash/input_size_64-12        	  500000	        10.15 ns/op	6305.79 MB/s
+BenchmarkRapidhash/input_size_127-12       	  500000	        12.51 ns/op	10152.04 MB/s
+BenchmarkRapidhash/input_size_127-12       	  500000	        12.75 ns/op	9960.32 MB/s
+BenchmarkRapidhash/input_size_127-12       	  500000	        12.61 ns/op	10070.89 MB/s
+BenchmarkRapidhash/input_size_128-12       	  500000	        12.69 ns/op	10084.14 MB/s
+BenchmarkRapidhash/input_size_128-12       	  500000	        12.55 ns/op	10202.46 MB/s
+BenchmarkRapidhash/input_size_128-12       	  500000	        13.64 ns/op	9383.20 MB/s
+BenchmarkRapidhash/input_size_129-12       	  500000	        13.26 ns/op	9729.54 MB/s
+BenchmarkRapidhash/input_size_129-12       	  500000	        13.74 ns/op	9391.38 MB/s
+BenchmarkRapidhash/input_size_129-12       	  500000	        13.35 ns/op	9660.32 MB/s
+BenchmarkRapidhash/input_size_256-12       	  500000	        19.25 ns/op	13297.73 MB/s
+BenchmarkRapidhash/input_size_256-12       	  500000	        19.05 ns/op	13440.16 MB/s
+BenchmarkRapidhash/input_size_256-12       	  500000	        19.80 ns/op	12931.65 MB/s
+BenchmarkRapidhash/input_size_2048-12      	  500000	       109.0 ns/op	18789.92 MB/s
+BenchmarkRapidhash/input_size_2048-12      	  500000	       110.9 ns/op	18469.49 MB/s
+BenchmarkRapidhash/input_size_2048-12      	  500000	       110.0 ns/op	18619.27 MB/s
+BenchmarkRapidhash/input_size_4096-12      	  500000	       214.0 ns/op	19143.77 MB/s
+BenchmarkRapidhash/input_size_4096-12      	  500000	       216.6 ns/op	18910.44 MB/s
+BenchmarkRapidhash/input_size_4096-12      	  500000	       214.6 ns/op	19088.92 MB/s
+BenchmarkRapidhash/input_size_20480-12     	  500000	      1045 ns/op	19601.98 MB/s
+BenchmarkRapidhash/input_size_20480-12     	  500000	      1039 ns/op	19708.87 MB/s
+BenchmarkRapidhash/input_size_20480-12     	  500000	      1064 ns/op	19245.24 MB/s
+BenchmarkRapidhashMicro/input_size_0-12    	  500000	         3.529 ns/op
+BenchmarkRapidhashMicro/input_size_0-12    	  500000	         5.148 ns/op
+BenchmarkRapidhashMicro/input_size_0-12    	  500000	         4.055 ns/op
+BenchmarkRapidhashMicro/input_size_3-12    	  500000	         4.471 ns/op	 670.96 MB/s
+BenchmarkRapidhashMicro/input_size_3-12    	  500000	         3.703 ns/op	 810.07 MB/s
+BenchmarkRapidhashMicro/input_size_3-12    	  500000	         3.642 ns/op	 823.63 MB/s
+BenchmarkRapidhashMicro/input_size_4-12    	  500000	         3.897 ns/op	1026.43 MB/s
+BenchmarkRapidhashMicro/input_size_4-12    	  500000	         3.695 ns/op	1082.49 MB/s
+BenchmarkRapidhashMicro/input_size_4-12    	  500000	         4.884 ns/op	 818.93 MB/s
+BenchmarkRapidhashMicro/input_size_5-12    	  500000	         4.985 ns/op	1002.97 MB/s
+BenchmarkRapidhashMicro/input_size_5-12    	  500000	         3.825 ns/op	1307.12 MB/s
+BenchmarkRapidhashMicro/input_size_5-12    	  500000	         3.786 ns/op	1320.72 MB/s
+BenchmarkRapidhashMicro/input_size_16-12   	  500000	         3.802 ns/op	4208.09 MB/s
+BenchmarkRapidhashMicro/input_size_16-12   	  500000	         3.794 ns/op	4217.63 MB/s
+BenchmarkRapidhashMicro/input_size_16-12   	  500000	         3.761 ns/op	4253.96 MB/s
+BenchmarkRapidhashMicro/input_size_24-12   	  500000	         5.364 ns/op	4474.61 MB/s
+BenchmarkRapidhashMicro/input_size_24-12   	  500000	         5.777 ns/op	4154.12 MB/s
+BenchmarkRapidhashMicro/input_size_24-12   	  500000	         5.313 ns/op	4517.22 MB/s
+BenchmarkRapidhashMicro/input_size_32-12   	  500000	         6.097 ns/op	5248.83 MB/s
+BenchmarkRapidhashMicro/input_size_32-12   	  500000	         5.598 ns/op	5716.53 MB/s
+BenchmarkRapidhashMicro/input_size_32-12   	  500000	         6.616 ns/op	4836.76 MB/s
+BenchmarkRapidhashMicro/input_size_64-12   	  500000	         8.769 ns/op	7298.44 MB/s
+BenchmarkRapidhashMicro/input_size_64-12   	  500000	         8.224 ns/op	7781.91 MB/s
+BenchmarkRapidhashMicro/input_size_64-12   	  500000	         8.233 ns/op	7773.41 MB/s
+BenchmarkRapidhashMicro/input_size_127-12  	  500000	        13.08 ns/op	9711.71 MB/s
+BenchmarkRapidhashMicro/input_size_127-12  	  500000	        13.07 ns/op	9713.19 MB/s
+BenchmarkRapidhashMicro/input_size_127-12  	  500000	        11.93 ns/op	10643.11 MB/s
+BenchmarkRapidhashMicro/input_size_128-12  	  500000	        12.02 ns/op	10645.55 MB/s
+BenchmarkRapidhashMicro/input_size_128-12  	  500000	        11.94 ns/op	10722.24 MB/s
+BenchmarkRapidhashMicro/input_size_128-12  	  500000	        12.47 ns/op	10262.50 MB/s
+BenchmarkRapidhashMicro/input_size_129-12  	  500000	        13.55 ns/op	9519.31 MB/s
+BenchmarkRapidhashMicro/input_size_129-12  	  500000	        14.19 ns/op	9089.76 MB/s
+BenchmarkRapidhashMicro/input_size_129-12  	  500000	        13.63 ns/op	9465.94 MB/s
+BenchmarkRapidhashMicro/input_size_256-12  	  500000	        18.32 ns/op	13973.80 MB/s
+BenchmarkRapidhashMicro/input_size_256-12  	  500000	        18.45 ns/op	13872.93 MB/s
+BenchmarkRapidhashMicro/input_size_256-12  	  500000	        18.22 ns/op	14053.73 MB/s
+BenchmarkRapidhashMicro/input_size_2048-12 	  500000	       120.8 ns/op	16950.30 MB/s
+BenchmarkRapidhashMicro/input_size_2048-12 	  500000	       115.7 ns/op	17704.87 MB/s
+BenchmarkRapidhashMicro/input_size_2048-12 	  500000	       118.5 ns/op	17286.67 MB/s
+BenchmarkRapidhashMicro/input_size_4096-12 	  500000	       228.4 ns/op	17934.85 MB/s
+BenchmarkRapidhashMicro/input_size_4096-12 	  500000	       227.5 ns/op	18000.76 MB/s
+BenchmarkRapidhashMicro/input_size_4096-12 	  500000	       228.9 ns/op	17892.50 MB/s
+BenchmarkRapidhashMicro/input_size_20480-12         	  500000	      1133 ns/op	18079.42 MB/s
+BenchmarkRapidhashMicro/input_size_20480-12         	  500000	      1127 ns/op	18175.99 MB/s
+BenchmarkRapidhashMicro/input_size_20480-12         	  500000	      1146 ns/op	17871.05 MB/s
+BenchmarkRapidhashNano/input_size_0-12              	  500000	         3.424 ns/op
+BenchmarkRapidhashNano/input_size_0-12              	  500000	         3.403 ns/op
+BenchmarkRapidhashNano/input_size_0-12              	  500000	         3.366 ns/op
+BenchmarkRapidhashNano/input_size_3-12              	  500000	         3.612 ns/op	 830.52 MB/s
+BenchmarkRapidhashNano/input_size_3-12              	  500000	         5.495 ns/op	 545.93 MB/s
+BenchmarkRapidhashNano/input_size_3-12              	  500000	         3.656 ns/op	 820.57 MB/s
+BenchmarkRapidhashNano/input_size_4-12              	  500000	         3.767 ns/op	1061.85 MB/s
+BenchmarkRapidhashNano/input_size_4-12              	  500000	         3.942 ns/op	1014.61 MB/s
+BenchmarkRapidhashNano/input_size_4-12              	  500000	         3.708 ns/op	1078.87 MB/s
+BenchmarkRapidhashNano/input_size_5-12              	  500000	         4.156 ns/op	1203.02 MB/s
+BenchmarkRapidhashNano/input_size_5-12              	  500000	         4.616 ns/op	1083.28 MB/s
+BenchmarkRapidhashNano/input_size_5-12              	  500000	         4.183 ns/op	1195.31 MB/s
+BenchmarkRapidhashNano/input_size_16-12             	  500000	         3.694 ns/op	4331.11 MB/s
+BenchmarkRapidhashNano/input_size_16-12             	  500000	         3.816 ns/op	4192.65 MB/s
+BenchmarkRapidhashNano/input_size_16-12             	  500000	         4.461 ns/op	3586.64 MB/s
+BenchmarkRapidhashNano/input_size_24-12             	  500000	         5.238 ns/op	4582.25 MB/s
+BenchmarkRapidhashNano/input_size_24-12             	  500000	         5.352 ns/op	4484.64 MB/s
+BenchmarkRapidhashNano/input_size_24-12             	  500000	         8.349 ns/op	2874.66 MB/s
+BenchmarkRapidhashNano/input_size_32-12             	  500000	         5.137 ns/op	6229.08 MB/s
+BenchmarkRapidhashNano/input_size_32-12             	  500000	         5.194 ns/op	6160.48 MB/s
+BenchmarkRapidhashNano/input_size_32-12             	  500000	         5.287 ns/op	6052.12 MB/s
+BenchmarkRapidhashNano/input_size_64-12             	  500000	         7.966 ns/op	8033.74 MB/s
+BenchmarkRapidhashNano/input_size_64-12             	  500000	         7.875 ns/op	8126.99 MB/s
+BenchmarkRapidhashNano/input_size_64-12             	  500000	         7.997 ns/op	8003.40 MB/s
+BenchmarkRapidhashNano/input_size_127-12            	  500000	        11.36 ns/op	11178.59 MB/s
+BenchmarkRapidhashNano/input_size_127-12            	  500000	        11.11 ns/op	11429.09 MB/s
+BenchmarkRapidhashNano/input_size_127-12            	  500000	        11.13 ns/op	11414.50 MB/s
+BenchmarkRapidhashNano/input_size_128-12            	  500000	        11.89 ns/op	10762.64 MB/s
+BenchmarkRapidhashNano/input_size_128-12            	  500000	        11.16 ns/op	11470.97 MB/s
+BenchmarkRapidhashNano/input_size_128-12            	  500000	        11.36 ns/op	11270.98 MB/s
+BenchmarkRapidhashNano/input_size_129-12            	  500000	        13.17 ns/op	9793.35 MB/s
+BenchmarkRapidhashNano/input_size_129-12            	  500000	        12.70 ns/op	10158.28 MB/s
+BenchmarkRapidhashNano/input_size_129-12            	  500000	        12.83 ns/op	10056.91 MB/s
+BenchmarkRapidhashNano/input_size_256-12            	  500000	        18.39 ns/op	13923.03 MB/s
+BenchmarkRapidhashNano/input_size_256-12            	  500000	        18.39 ns/op	13923.49 MB/s
+BenchmarkRapidhashNano/input_size_256-12            	  500000	        18.24 ns/op	14036.01 MB/s
+BenchmarkRapidhashNano/input_size_2048-12           	  500000	       118.9 ns/op	17224.59 MB/s
+BenchmarkRapidhashNano/input_size_2048-12           	  500000	       116.4 ns/op	17595.11 MB/s
+BenchmarkRapidhashNano/input_size_2048-12           	  500000	       116.5 ns/op	17584.50 MB/s
+BenchmarkRapidhashNano/input_size_4096-12           	  500000	       229.9 ns/op	17813.61 MB/s
+BenchmarkRapidhashNano/input_size_4096-12           	  500000	       228.7 ns/op	17911.31 MB/s
+BenchmarkRapidhashNano/input_size_4096-12           	  500000	       227.6 ns/op	17993.86 MB/s
+BenchmarkRapidhashNano/input_size_20480-12          	  500000	      1133 ns/op	18072.29 MB/s
+BenchmarkRapidhashNano/input_size_20480-12          	  500000	      1142 ns/op	17933.71 MB/s
+BenchmarkRapidhashNano/input_size_20480-12          	  500000	      1134 ns/op	18052.72 MB/s
+BenchmarkXXHash/input_size_0-12                     	  500000	         3.678 ns/op
+BenchmarkXXHash/input_size_0-12                     	  500000	         3.016 ns/op
+BenchmarkXXHash/input_size_0-12                     	  500000	         4.226 ns/op
+BenchmarkXXHash/input_size_3-12                     	  500000	         4.261 ns/op	 704.13 MB/s
+BenchmarkXXHash/input_size_3-12                     	  500000	         4.286 ns/op	 699.99 MB/s
+BenchmarkXXHash/input_size_3-12                     	  500000	         4.550 ns/op	 659.34 MB/s
+BenchmarkXXHash/input_size_4-12                     	  500000	         3.069 ns/op	1303.44 MB/s
+BenchmarkXXHash/input_size_4-12                     	  500000	         3.179 ns/op	1258.42 MB/s
+BenchmarkXXHash/input_size_4-12                     	  500000	         3.165 ns/op	1263.74 MB/s
+BenchmarkXXHash/input_size_5-12                     	  500000	         3.628 ns/op	1378.09 MB/s
+BenchmarkXXHash/input_size_5-12                     	  500000	         3.785 ns/op	1321.14 MB/s
+BenchmarkXXHash/input_size_5-12                     	  500000	         4.151 ns/op	1204.41 MB/s
+BenchmarkXXHash/input_size_16-12                    	  500000	         4.423 ns/op	3617.45 MB/s
+BenchmarkXXHash/input_size_16-12                    	  500000	         5.403 ns/op	2961.54 MB/s
+BenchmarkXXHash/input_size_16-12                    	  500000	         4.407 ns/op	3630.42 MB/s
+BenchmarkXXHash/input_size_24-12                    	  500000	         5.294 ns/op	4533.78 MB/s
+BenchmarkXXHash/input_size_24-12                    	  500000	         5.278 ns/op	4547.35 MB/s
+BenchmarkXXHash/input_size_24-12                    	  500000	         5.560 ns/op	4316.24 MB/s
+BenchmarkXXHash/input_size_32-12                    	  500000	         9.460 ns/op	3382.74 MB/s
+BenchmarkXXHash/input_size_32-12                    	  500000	         8.348 ns/op	3833.44 MB/s
+BenchmarkXXHash/input_size_32-12                    	  500000	         8.301 ns/op	3854.96 MB/s
+BenchmarkXXHash/input_size_64-12                    	  500000	        10.16 ns/op	6299.34 MB/s
+BenchmarkXXHash/input_size_64-12                    	  500000	        10.35 ns/op	6182.38 MB/s
+BenchmarkXXHash/input_size_64-12                    	  500000	        10.82 ns/op	5915.96 MB/s
+BenchmarkXXHash/input_size_127-12                   	  500000	        19.62 ns/op	6471.87 MB/s
+BenchmarkXXHash/input_size_127-12                   	  500000	        21.60 ns/op	5879.79 MB/s
+BenchmarkXXHash/input_size_127-12                   	  500000	        19.64 ns/op	6467.38 MB/s
+BenchmarkXXHash/input_size_128-12                   	  500000	        19.81 ns/op	6461.19 MB/s
+BenchmarkXXHash/input_size_128-12                   	  500000	        18.73 ns/op	6833.37 MB/s
+BenchmarkXXHash/input_size_128-12                   	  500000	        19.01 ns/op	6734.72 MB/s
+BenchmarkXXHash/input_size_129-12                   	  500000	        17.84 ns/op	7232.48 MB/s
+BenchmarkXXHash/input_size_129-12                   	  500000	        18.83 ns/op	6850.33 MB/s
+BenchmarkXXHash/input_size_129-12                   	  500000	        16.69 ns/op	7727.70 MB/s
+BenchmarkXXHash/input_size_256-12                   	  500000	        22.92 ns/op	11168.80 MB/s
+BenchmarkXXHash/input_size_256-12                   	  500000	        22.58 ns/op	11339.28 MB/s
+BenchmarkXXHash/input_size_256-12                   	  500000	        23.70 ns/op	10799.50 MB/s
+BenchmarkXXHash/input_size_2048-12                  	  500000	       136.3 ns/op	15029.89 MB/s
+BenchmarkXXHash/input_size_2048-12                  	  500000	       137.4 ns/op	14903.78 MB/s
+BenchmarkXXHash/input_size_2048-12                  	  500000	       137.7 ns/op	14871.55 MB/s
+BenchmarkXXHash/input_size_4096-12                  	  500000	       277.4 ns/op	14767.73 MB/s
+BenchmarkXXHash/input_size_4096-12                  	  500000	       273.8 ns/op	14962.48 MB/s
+BenchmarkXXHash/input_size_4096-12                  	  500000	       276.4 ns/op	14816.58 MB/s
+BenchmarkXXHash/input_size_20480-12                 	  500000	      1338 ns/op	15308.77 MB/s
+BenchmarkXXHash/input_size_20480-12                 	  500000	      1327 ns/op	15429.85 MB/s
+BenchmarkXXHash/input_size_20480-12                 	  500000	      1350 ns/op	15167.42 MB/s
+PASS
+ok  	github.com/poiug07/rapidhash_go/benchmarks	10.053s

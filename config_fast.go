@@ -17,3 +17,9 @@ package rapidhash
  *  protected = false (default): "fast" mode, max speed.
  */
 const protected = false
+
+//go:nosplit
+func rapid_mix(a, b uint64) uint64 {
+	hi, lo := rapid_mum(a, b)
+	return lo ^ hi
+}

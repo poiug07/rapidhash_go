@@ -25,13 +25,11 @@ func rapidhash_internal(data []byte, seed uint64, secret [8]uint64) uint64 {
 		if bufferlen >= 4 {
 			seed ^= bufferlen
 			if bufferlen >= 8 {
-				var datalast = data[bufferlen-8:]
 				a = read64(data)
-				b = read64(datalast)
+				b = read64(data[bufferlen-8:])
 			} else {
-				var datalast = data[bufferlen-4:]
 				a = read32(data)
-				b = read32(datalast)
+				b = read32(data[bufferlen-4:])
 			}
 		} else {
 			if bufferlen > 0 {
@@ -50,6 +48,7 @@ func rapidhash_internal(data []byte, seed uint64, secret [8]uint64) uint64 {
 		// unrolled loop
 		if i > 224 {
 			for i > 224 {
+				_ = p[223] // bounds-check elimination hint: p has >= 224 bytes
 				seed = rapid_mix(read64(p)^secret[0], read64(p[8:])^seed)
 				see1 = rapid_mix(read64(p[16:])^secret[1], read64(p[24:])^see1)
 				see2 = rapid_mix(read64(p[32:])^secret[2], read64(p[40:])^see2)
@@ -70,6 +69,7 @@ func rapidhash_internal(data []byte, seed uint64, secret [8]uint64) uint64 {
 		}
 
 		if i > 112 {
+			_ = p[111] // bounds-check elimination hint: p has >= 112 bytes
 			seed = rapid_mix(read64(p)^secret[0], read64(p[8:])^seed)
 			see1 = rapid_mix(read64(p[16:])^secret[1], read64(p[24:])^see1)
 			see2 = rapid_mix(read64(p[32:])^secret[2], read64(p[40:])^see2)
@@ -106,12 +106,13 @@ func rapidhash_internal(data []byte, seed uint64, secret [8]uint64) uint64 {
 				}
 			}
 		}
-		a = read64(data[bufferlen-((uint64)(len(p)))+i-16:]) ^ i
-		b = read64(data[bufferlen-((uint64)(len(p)))+i-8:])
+		a = read64(data[bufferlen-16:]) ^ i
+		b = read64(data[bufferlen-8:])
 	}
 	a ^= secret[1]
 	b ^= seed
-	rapid_mum(&a, &b)
+	hi, lo := rapid_mum(a, b)
+	a, b = lo, hi
 	return rapid_mix(a^secret[7], b^secret[1]^i)
 }
 
@@ -134,13 +135,11 @@ func rapidhash_micro_internal(data []byte, seed uint64, secret [8]uint64) uint64
 		if bufferlen >= 4 {
 			seed ^= bufferlen
 			if bufferlen >= 8 {
-				var datalast = data[bufferlen-8:]
 				a = read64(data)
-				b = read64(datalast)
+				b = read64(data[bufferlen-8:])
 			} else {
-				var datalast = data[bufferlen-4:]
 				a = read32(data)
-				b = read32(datalast)
+				b = read32(data[bufferlen-4:])
 			}
 		} else {
 			if bufferlen > 0 {
@@ -155,6 +154,7 @@ func rapidhash_micro_internal(data []byte, seed uint64, secret [8]uint64) uint64
 		if i > 80 {
 			var see1, see2, see3, see4 = seed, seed, seed, seed
 			for i > 80 {
+				_ = p[79] // bounds-check elimination hint: p has >= 80 bytes
 				seed = rapid_mix(read64(p)^secret[0], read64(p[8:])^seed)
 				see1 = rapid_mix(read64(p[16:])^secret[1], read64(p[24:])^see1)
 				see2 = rapid_mix(read64(p[32:])^secret[2], read64(p[40:])^see2)
@@ -180,12 +180,13 @@ func rapidhash_micro_internal(data []byte, seed uint64, secret [8]uint64) uint64
 				}
 			}
 		}
-		a = read64(data[bufferlen-((uint64)(len(p)))+i-16:]) ^ i
-		b = read64(data[bufferlen-((uint64)(len(p)))+i-8:])
+		a = read64(data[bufferlen-16:]) ^ i
+		b = read64(data[bufferlen-8:])
 	}
 	a ^= secret[1]
 	b ^= seed
-	rapid_mum(&a, &b)
+	hi, lo := rapid_mum(a, b)
+	a, b = lo, hi
 	return rapid_mix(a^secret[7], b^secret[1]^i)
 }
 
@@ -208,13 +209,11 @@ func rapidhash_nano_internal(data []byte, seed uint64, secret [8]uint64) uint64 
 		if bufferlen >= 4 {
 			seed ^= bufferlen
 			if bufferlen >= 8 {
-				var datalast = data[bufferlen-8:]
 				a = read64(data)
-				b = read64(datalast)
+				b = read64(data[bufferlen-8:])
 			} else {
-				var datalast = data[bufferlen-4:]
 				a = read32(data)
-				b = read32(datalast)
+				b = read32(data[bufferlen-4:])
 			}
 		} else {
 			if bufferlen > 0 {
@@ -229,6 +228,7 @@ func rapidhash_nano_internal(data []byte, seed uint64, secret [8]uint64) uint64 
 		if i > 48 {
 			var see1, see2 = seed, seed
 			for i > 48 {
+				_ = p[47] // bounds-check elimination hint: p has >= 48 bytes
 				seed = rapid_mix(read64(p)^secret[0], read64(p[8:])^seed)
 				see1 = rapid_mix(read64(p[16:])^secret[1], read64(p[24:])^see1)
 				see2 = rapid_mix(read64(p[32:])^secret[2], read64(p[40:])^see2)
@@ -244,12 +244,13 @@ func rapidhash_nano_internal(data []byte, seed uint64, secret [8]uint64) uint64 
 				seed = rapid_mix(read64(p[16:])^secret[2], read64(p[24:])^seed)
 			}
 		}
-		a = read64(data[bufferlen-((uint64)(len(p)))+i-16:]) ^ i
-		b = read64(data[bufferlen-((uint64)(len(p)))+i-8:])
+		a = read64(data[bufferlen-16:]) ^ i
+		b = read64(data[bufferlen-8:])
 	}
 	a ^= secret[1]
 	b ^= seed
-	rapid_mum(&a, &b)
+	hi, lo := rapid_mum(a, b)
+	a, b = lo, hi
 	return rapid_mix(a^secret[7], b^secret[1]^i)
 }
 
@@ -274,8 +275,8 @@ type Digest struct {
 	see6     uint64
 }
 
-const chunkSize = 112 // The size of a single rapidhash processing chunk.
-const chunkPrev = 16  // The minimum tail we must keep in the buffer for processing.
+const chunkSize = 112 // The size of a single rapidhash processing chunk
+const chunkPrev = 16  // The minimum tail we must keep in the buffer for processing
 
 func New() *Digest {
 	d := Digest{}
@@ -295,7 +296,7 @@ func (d *Digest) Reset() {
 
 /*
  *  Resets the internal state of the hasher to a new seed, equivalent to
- *  reinitializing a new hasher with the given seed.
+ *  reinitializing a new hasher with the given seed
  */
 func (d *Digest) ResetWithSeed(seed uint64) {
 	d.buffered = 0
@@ -334,13 +335,13 @@ func (d *Digest) Write(data []byte) (n int, err error) {
 func (d *Digest) writeInner(data []byte) {
 	chunkBuffer := d.buffer[chunkPrev:]
 
-	// Fill the current chunk up to 112 bytes and process it.
+	// Fill the current chunk up to 112 bytes and process it
 	copyBytes := chunkSize - d.buffered
 	copy(chunkBuffer[d.buffered:chunkSize], data[:copyBytes])
 	d.processChunk(chunkBuffer)
 	d.buffered = 0
 
-	// Process chunks without copying, keeping the last chunk back.
+	// Process chunks without copying, keeping the last chunk back
 	remaining := data[copyBytes:]
 	stop := (len(remaining) - 1) / chunkSize * chunkSize
 	var lastChunk []byte
@@ -351,14 +352,14 @@ func (d *Digest) writeInner(data []byte) {
 		pos += chunkSize
 	}
 
-	// Copy the final 16 data bytes from the previous chunk into chunkPrev.
+	// Copy the final 16 data bytes from the previous chunk into chunkPrev
 	if lastChunk != nil {
 		copy(d.buffer[:chunkPrev], lastChunk[chunkSize-chunkPrev:])
 	} else {
 		copy(d.buffer[:chunkPrev], chunkBuffer[chunkSize-chunkPrev:])
 	}
 
-	// Copy the remainder into the chunk part of the buffer.
+	// Copy the remainder into the chunk part of the buffer
 	unprocessed := remaining[pos:]
 	copy(chunkBuffer[:len(unprocessed)], unprocessed)
 	d.buffered = len(unprocessed)
@@ -378,13 +379,14 @@ func (d *Digest) Size() int {
 	return 8
 }
 
-// Returns the internal buffer block size in bytes, implementing the hash.Hash interface. We process data in 112-byte chunks.
+// Returns the internal buffer block size in bytes, implementing the hash.Hash interface. We process data in 112-byte chunks
 func (d *Digest) BlockSize() int {
 	return 112
 }
 
 func (d *Digest) processChunk(p []byte) {
 	seed := d.seed
+	_ = p[111] // bounds-check elimination hint: p has == 112 bytes
 	d.seed = rapid_mix(read64(p)^rapid_secret[0], read64(p[8:])^seed)
 	d.see1 = rapid_mix(read64(p[16:])^rapid_secret[1], read64(p[24:])^d.see1)
 	d.see2 = rapid_mix(read64(p[32:])^rapid_secret[2], read64(p[40:])^d.see2)
@@ -405,18 +407,16 @@ func (d *Digest) finish() uint64 {
 	var a, b uint64
 
 	if d.chunks == 0 && bufferlen <= 16 {
-		// Short <=16 pass only if we haven't processed a full chunk yet.
+		// Short <=16 pass only if we haven't processed a full chunk yet
 		data := d.buffer[chunkPrev : chunkPrev+int(bufferlen)]
 		if bufferlen >= 4 {
 			seed ^= bufferlen
 			if bufferlen >= 8 {
-				var datalast = data[bufferlen-8:]
 				a = read64(data)
-				b = read64(datalast)
+				b = read64(data[bufferlen-8:])
 			} else {
-				var datalast = data[bufferlen-4:]
 				a = read32(data)
-				b = read32(datalast)
+				b = read32(data[bufferlen-4:])
 			}
 		} else if bufferlen > 0 {
 			a = (((uint64)(data[0])) << 45) | ((uint64)(data[bufferlen-1]))
@@ -424,11 +424,11 @@ func (d *Digest) finish() uint64 {
 		}
 	} else {
 		if d.chunks > 0 {
-			// Merge independent lanes if we'd previously processed a full chunk.
+			// Merge independent lanes if we'd previously processed a full chunk
 			seed = d.seed ^ d.see1 ^ d.see2 ^ d.see3 ^ d.see4 ^ d.see5 ^ d.see6
 		}
 
-		// The >16 tail is the same whether we've processed a full chunk or not.
+		// The >16 tail is the same whether we've processed a full chunk or not
 		slice := d.buffer[chunkPrev : chunkPrev+int(bufferlen)]
 		if bufferlen > 16 {
 			seed = rapid_mix(read64(slice)^rapid_secret[2], read64(slice[8:])^seed)
@@ -449,13 +449,14 @@ func (d *Digest) finish() uint64 {
 			}
 		}
 
-		// The final 16 bytes may read from the chunkPrev part of the buffer.
+		// The final 16 bytes may read from the chunkPrev part of the buffer
 		data := d.buffer[:chunkPrev+int(bufferlen)]
 		a = read64(data[len(data)-16:]) ^ bufferlen
 		b = read64(data[len(data)-8:])
 	}
 	a ^= rapid_secret[1]
 	b ^= seed
-	rapid_mum(&a, &b)
+	hi, lo := rapid_mum(a, b)
+	a, b = lo, hi
 	return rapid_mix(a^rapid_secret[7], b^rapid_secret[1]^bufferlen)
 }

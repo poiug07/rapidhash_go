@@ -8,27 +8,15 @@ import (
 /*
 64*64 -> 128bit multiply function.
 
-Calculates 128-bit C = *A * *B.
+Calculates 128-bit C = A * B, returning the high and low 64-bit halves.
 */
-func rapid_mum(A *uint64, B *uint64) {
-	hi, lo := bits.Mul64(*A, *B)
-	*A = lo
-	*B = hi
+func rapid_mum(a, b uint64) (hi, lo uint64) {
+	return bits.Mul64(a, b)
 }
 
-func rapid_mum_protected(A *uint64, B *uint64) {
-	hi, lo := bits.Mul64(*A, *B)
-	*A ^= lo
-	*B ^= hi
-}
-
-func rapid_mix(A, B uint64) uint64 {
-	if protected {
-		rapid_mum_protected(&A, &B)
-	} else {
-		rapid_mum(&A, &B)
-	}
-	return A ^ B
+func rapid_mum_protected(a, b uint64) (hi, lo uint64) {
+	hi, lo = bits.Mul64(a, b)
+	return hi ^ a, lo ^ b
 }
 
 func read64(data []byte) uint64 {
